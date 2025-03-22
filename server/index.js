@@ -12,15 +12,15 @@ app.use(cors());
 app.use(express.json());
 
 //Importing userRoutes
-
+const userRoutes = require("./routes/userRoute");
 // Importing answerRoute
 
 //Importing questionRoutes
-
+const questionRoute = require("./routes/questionRoute");
 // user route middleware
-
+app.use("/api/users", userRoutes);
 // Question route middleware
-
+app.use("/api/question", questionRoute);
 // Answers Route middleware
 app.get("/", (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "It is working" });
